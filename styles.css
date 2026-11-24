@@ -1,0 +1,645 @@
+/* Территория отдыха «Голубое Озеро» — статический сайт, без фреймворков и JS */
+:root {
+  --blue: #168bc0;
+  --blue-dark: #0c648f;
+  --blue-light: #eaf7fe;
+  --brown: #693c25;
+  --brown-strong: #4c2a1a;
+  --brown-soft: #a56b47;
+  --cream: #f5ede3;
+  --paper: #fbfaf7;
+  --white: #fff;
+  --text: #2c3438;
+  --muted: #68747a;
+  --border: #e6e5e1;
+  --shadow: 0 15px 45px rgba(44, 69, 77, .09);
+  --radius: 23px;
+  --max-width: 1220px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+body { margin: 0; background: var(--paper); color: var(--text); font-family: "Segoe UI", Inter, -apple-system, BlinkMacSystemFont, Arial, sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+a:focus-visible, summary:focus-visible { outline: 3px solid #55c2eb; outline-offset: 4px; }
+img { display: block; width: 100%; }
+button, a, summary { -webkit-tap-highlight-color: transparent; }
+svg.icon { width: 20px; height: 20px; stroke: currentColor; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; fill: none; flex-shrink: 0; }
+.svg-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+.container { width: min(var(--max-width), calc(100% - 64px)); margin: 0 auto; }
+.section { padding: 100px 0; }
+.skip-link { position: absolute; top: -60px; left: 12px; z-index: 30; background: white; padding: 12px; }
+.skip-link:focus { top: 12px; }
+
+/* Header */
+.site-header { position: relative; z-index: 10; background: linear-gradient(100deg, #0f729f, #1792c7 64%, #2b9ccd); color: #fff; }
+.header-inner { height: 92px; display: flex; align-items: center; gap: 25px; justify-content: space-between; }
+.brand { display: flex; flex-direction: column; width: 204px; flex-shrink: 0; line-height: 1; gap: 0; }
+.brand-kicker { text-transform: uppercase; letter-spacing: .17em; font-size: 10px; font-weight: 800; text-align: center; margin-bottom: -3px; }
+.brand img { width: 204px; height: 59px; object-fit: contain; }
+.desktop-nav { display: flex; align-items: center; justify-content: center; gap: 23px; }
+.desktop-nav a { color: rgba(255,255,255,.92); font-size: 14px; font-weight: 650; transition: color .2s; white-space: nowrap; }
+.desktop-nav a:hover { color: #e6d2bb; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 12px; border-radius: 999px; padding: 13px 22px; font-size: 14px; font-weight: 750; transition: transform .2s, background .2s, box-shadow .2s; white-space: nowrap; }
+.btn:hover { transform: translateY(-2px); }
+.btn--brown { background: linear-gradient(135deg, #a8734e, #663b26); color: #fff; box-shadow: 0 6px 20px rgba(60, 33, 17, .18), inset 0 1px rgba(255,255,255,.33); border: 1px solid rgba(255,255,255,.4); }
+.btn--brown:hover { background: linear-gradient(135deg, #b37a51, #70432a); box-shadow: 0 10px 25px rgba(60,33,17,.24); }
+.btn--large { min-height: 55px; padding: 15px 25px; font-size: 15px; }
+.header-cta { font-size: 13px; }
+.header-cta svg { width: 17px; }
+.mobile-nav { display: none; }
+
+/* Hero */
+.hero { position: relative; min-height: 620px; overflow: hidden; background: radial-gradient(circle at 41% 28%, #44b3dd 0%, transparent 40%), linear-gradient(112deg, #0f79aa 6%, #1c9dca 73%, #72c9e5 100%); color: white; isolation: isolate; }
+.hero::before { content: ""; position: absolute; inset: 0; z-index: -1; background: repeating-radial-gradient(ellipse at 2% 105%, transparent 0 42px, rgba(255,255,255,.055) 44px 46px, transparent 48px 80px); opacity: .45; }
+.hero-photo { position: absolute; width: 61%; height: 100%; right: 0; top: 0; z-index: -2; overflow: hidden; }
+.hero-photo { background: url("assets/hero-video-poster.webp") center center / cover no-repeat; }
+.hero-video { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 43%; filter: saturate(1.02); }
+.hero-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #1187b9 0, rgba(17,135,185,.74) 13%, rgba(17,135,185,.08) 43%, rgba(3,45,62,.1) 100%); }
+.hero-glow { position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(5,91,130,.52), transparent 53%); }
+.hero-content { position: relative; padding-top: 105px; padding-bottom: 160px; }
+.eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--brown-soft); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .17em; }
+.eyebrow--light { color: #e7f8ff; }
+.eyebrow-dot { width: 8px; height: 8px; border-radius: 50%; background: #daebc9; box-shadow: 0 0 0 5px rgba(255,255,255,.13); }
+h1, h2, h3, p { margin-top: 0; }
+h1, h2, h3 { line-height: 1.13; letter-spacing: -.035em; }
+.hero h1 { margin: 23px 0 24px; max-width: 760px; font-size: clamp(43px, 5vw, 72px); font-weight: 800; text-shadow: 0 3px 18px rgba(0,50,72,.08); }
+.hero h1 em { font-style: normal; color: #dbf3ff; }
+.hero p { max-width: 530px; margin-bottom: 30px; font-size: 17px; line-height: 1.8; color: rgba(255,255,255,.95); }
+.hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 24px; }
+.hero-text-link { font-weight: 700; font-size: 14px; border-bottom: 1px solid rgba(255,255,255,.55); padding-bottom: 4px; }
+.hero-text-link span { font-size: 17px; margin-left: 5px; }
+.hero-corner-label { position: absolute; bottom: 112px; right: 3.8%; display: flex; align-items: center; gap: 8px; border: 1px solid rgba(255,255,255,.7); border-radius: 40px; padding: 10px 15px; font-size: 12px; font-weight: 700; background: rgba(4,81,110,.25); backdrop-filter: blur(8px); }
+.hero-wave { position: absolute; bottom: -1px; left: 0; width: 100%; height: 72px; pointer-events: none; }
+
+/* Highlights and intro */
+.facts { padding: 22px 0 28px; }
+.facts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.fact { display: flex; align-items: center; gap: 15px; padding: 12px 18px; }
+.fact:not(:last-child) { border-right: 1px solid #e5e8e6; }
+.fact-icon { display: grid; place-items: center; width: 50px; height: 50px; flex-shrink: 0; border-radius: 15px; background: #e9f7fd; color: var(--blue-dark); }
+.fact-icon .icon { width: 25px; height: 25px; }
+.fact strong, .fact small { display: block; }
+.fact strong { color: var(--brown-strong); font-size: 15px; line-height: 1.4; }
+.fact small { color: var(--muted); font-size: 12px; line-height: 1.5; margin-top: 3px; }
+.intro { padding-top: 60px; padding-bottom: 95px; }
+.intro-layout { display: grid; grid-template-columns: 1.05fr .95fr; gap: 9%; align-items: center; }
+h2 { color: var(--brown-strong); font-size: clamp(34px, 3.3vw, 49px); margin: 17px 0 0; }
+.accent-blue { color: var(--blue); }
+.intro-text { border-left: 3px solid #a8ddef; padding-left: 28px; }
+.intro-text p { margin: 0 0 13px; color: #56646c; font-size: 16px; line-height: 1.85; }
+.intro-text p:last-child { margin-bottom: 0; }
+
+/* Gazebo cards */
+.gazebos { background: linear-gradient(180deg, #eef8fc 0%, #f6fafd 39%, #fbfaf7 100%); padding-top: 92px; padding-bottom: 90px; }
+.section-heading { display: flex; align-items: end; justify-content: space-between; gap: 40px; margin-bottom: 36px; }
+.section-heading h2 { margin-top: 12px; }
+.section-heading > p { max-width: 390px; color: var(--muted); margin: 0 0 4px; font-size: 15px; }
+.gazebo-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; align-items: stretch; }
+.gazebo-card { display: flex; flex-direction: column; overflow: hidden; border-radius: var(--radius); border: 1px solid #e4e7e7; box-shadow: var(--shadow); background: #fff; transition: transform .2s, box-shadow .2s; }
+.gazebo-card:hover { transform: translateY(-5px); box-shadow: 0 22px 54px rgba(40, 61, 70, .14); }
+.gazebo-card--feature { border-color: #bb8c63; box-shadow: 0 16px 45px rgba(93, 60, 35, .13); }
+.gazebo-photos { display: grid; width: 100%; height: 100%; }
+.gazebo-photos--dual { grid-template-columns: 1.15fr .85fr; gap: 4px; background: #fff; }
+.gazebo-photos img { display: block; min-width: 0; width: 100%; height: 100%; object-fit: cover; }
+.variant-note { display: flex; gap: 10px; align-items: flex-start; margin: 6px 0 18px; padding: 14px; border-radius: 13px; background: var(--blue-light); color: var(--blue-dark); font-size: 12px; line-height: 1.6; font-weight: 700; }
+.variant-note .icon { flex: none; width: 20px; height: 20px; margin-top: 1px; }
+.gazebo-image { position: relative; height: 280px; overflow: hidden; background: #bed9de; }
+.gazebo-image img { height: 100%; object-fit: cover; transition: transform .5s; }
+.gazebo-card:hover .gazebo-image img { transform: scale(1.045); }
+.photo-badge { position: absolute; top: 16px; left: 15px; display: flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 999px; color: white; background: rgba(104,61,35,.95); font-size: 11px; font-weight: 800; box-shadow: 0 4px 12px rgba(0,0,0,.11); }
+.photo-badge svg { width: 14px; height: 14px; }
+.photo-badge--blue { background: rgba(21,113,157,.94); }
+.photo-badge--cream { background: rgba(255,250,243,.94); color: var(--brown-strong); }
+.gazebo-body { display: flex; flex-direction: column; flex: 1; padding: 24px 23px 22px; }
+.gazebo-card h3 { margin-bottom: 6px; color: var(--brown-strong); font-size: 25px; }
+.capacity { display: inline-flex; align-items: center; gap: 7px; color: var(--blue-dark); font-size: 13px; font-weight: 750; }
+.capacity .icon { width: 17px; height: 17px; }
+.gazebo-summary { margin: 21px 0 18px; font-size: 14px; color: #58656c; line-height: 1.75; }
+.feature-list { list-style: none; margin: 0 0 15px; padding: 0; display: grid; gap: 11px; }
+.feature-list li { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; line-height: 1.55; color: #3d4549; }
+.feature-list .icon { width: 17px; height: 17px; color: #2994b5; margin-top: 2px; }
+.more-details { margin-top: 7px; margin-bottom: 16px; border-radius: 12px; background: #f3f9fc; }
+.more-details summary { list-style: none; display: flex; align-items: center; justify-content: space-between; padding: 10px 12px; font-size: 12px; font-weight: 750; color: var(--blue-dark); cursor: pointer; }
+.more-details summary::-webkit-details-marker { display: none; }
+.more-details summary span { font-size: 21px; line-height: 1; }
+.more-details[open] summary span { transform: rotate(45deg); }
+.more-details p { padding: 0 12px 12px; margin: 0; color: #58656c; line-height: 1.7; font-size: 12px; }
+.card-footer { display: flex; justify-content: space-between; align-items: center; gap: 10px; border-top: 1px solid #ecebea; padding-top: 18px; margin-top: auto; }
+.price-unknown { color: #7b7b78; font-size: 11px; font-weight: 600; }
+.card-link { display: inline-flex; align-items: center; gap: 7px; color: var(--brown); font-size: 12px; font-weight: 800; white-space: nowrap; }
+.card-link .icon { width: 16px; height: 16px; }
+.card-link:hover { color: var(--blue); }
+.pricing { padding: 15px 14px; margin: 19px 0 17px; background: #faf0e5; border: 1px solid #f2dfcb; border-radius: 15px; }
+.pricing-line { display: flex; justify-content: space-between; gap: 10px; font-size: 12px; line-height: 1.6; padding: 4px 0; }
+.pricing-line span { color: #5a5650; }
+.pricing-line strong { color: var(--brown-strong); white-space: nowrap; font-size: 15px; }
+.pricing-note { margin-top: 4px; color: #90634b; font-size: 11px; font-weight: 700; }
+.included-label { font-size: 13px; font-weight: 800; color: var(--brown-strong); margin-bottom: 11px; }
+.feature-list--compact { gap: 9px; }
+.media-note { color: #73828a; text-align: center; font-size: 12px; margin: 23px 0 0; }
+
+/* Amenities */
+.amenities { padding-top: 95px; padding-bottom: 95px; }
+.amenities-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 75px; align-items: center; }
+.amenities-copy h2 { margin-bottom: 21px; }
+.amenities-copy p { color: var(--muted); font-size: 15px; line-height: 1.9; margin-bottom: 25px; }
+.text-link { display: inline-flex; align-items: center; gap: 9px; font-weight: 800; color: var(--blue-dark); padding-bottom: 5px; border-bottom: 2px solid #b7dfef; font-size: 14px; }
+.text-link .icon { width: 18px; height: 18px; }
+.amenity-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 17px; }
+.amenity { min-height: 182px; padding: 23px; background: #fff; border: 1px solid #edeae5; border-radius: 20px; box-shadow: 0 8px 23px rgba(54,63,59,.045); }
+.amenity > span { display: inline-grid; place-items: center; width: 45px; height: 45px; border-radius: 13px; color: var(--brown); background: #f5e8da; margin-bottom: 17px; }
+.amenity > span .icon { width: 23px; height: 23px; }
+.amenity:nth-child(2) > span, .amenity:nth-child(3) > span { background: #e7f5fb; color: var(--blue-dark); }
+.amenity strong { color: var(--brown-strong); display: block; font-size: 14px; }
+.amenity p { margin: 5px 0 0; font-size: 12px; color: var(--muted); }
+
+/* Gallery */
+.gallery { padding-top: 90px; padding-bottom: 115px; background: #fff; }
+.section-heading--center { text-align: center; display: block; }
+.section-heading--center > p { margin: 17px auto 0; max-width: 610px; }
+.gallery-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 17px; }
+.gallery-tile { position: relative; overflow: hidden; height: 270px; margin: 0; border-radius: 21px; background: #c8e2e9; }
+.gallery-tile img { height: 100%; object-fit: cover; transition: transform .4s; }
+.gallery-tile:hover img { transform: scale(1.045); }
+.gallery-tile::after { content: ""; position: absolute; inset: 40% 0 0; background: linear-gradient(transparent, rgba(23,41,46,.63)); }
+.gallery-tile figcaption { position: absolute; z-index: 1; color: #fff; font-size: 17px; font-weight: 750; bottom: 19px; left: 23px; right: 18px; }
+
+/* Contact / footer */
+.contact-section { position: relative; padding: 88px 0; color: white; background: radial-gradient(circle at 83% 0%, rgba(178,123,76,.55), transparent 35%), linear-gradient(115deg, #4e301e 0%, #764a2c 65%, #926341 100%); overflow: hidden; }
+.contact-section::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(0deg, transparent, transparent 9px, rgba(255,255,255,.018) 10px, transparent 13px); pointer-events: none; }
+.contact-layout { position: relative; display: grid; grid-template-columns: 1.05fr .8fr; gap: 12%; align-items: center; }
+.contact-section h2 { color: #fff; max-width: 650px; margin: 19px 0 20px; }
+.contact-section p { max-width: 560px; color: rgba(255,255,255,.8); line-height: 1.85; margin: 0; }
+.contact-card { border: 1px solid rgba(255,255,255,.34); border-radius: 24px; padding: 26px; background: rgba(255,255,255,.1); backdrop-filter: blur(4px); }
+.contact-card-title { display: block; font-size: 18px; font-weight: 800; margin-bottom: 18px; }
+.contact-line { display: flex; align-items: start; gap: 11px; margin-bottom: 16px; font-size: 14px; color: rgba(255,255,255,.85); }
+.contact-line .icon { margin-top: 1px; flex: 0 0 auto; }
+.contact-phone { font-weight: 800; color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+.contact-phone:hover { color: #cbeefa; }
+.btn--white { margin-top: 10px; color: var(--brown-strong); background: #fff; width: 100%; }
+.btn--white:hover { background: #f6ecdf; }
+.site-footer { background: #3a251b; color: rgba(255,255,255,.8); padding: 26px 0; }
+.footer-inner { display: flex; justify-content: space-between; gap: 25px; align-items: center; }
+.footer-inner strong, .footer-inner span { display: block; }
+.footer-inner strong { font-size: 14px; color: #fff; }
+.footer-inner span { font-size: 12px; margin-top: 4px; }
+.footer-inner a { display: flex; gap: 7px; align-items: center; font-size: 12px; font-weight: 800; }
+.footer-inner .icon { width: 15px; height: 15px; }
+
+@media (max-width: 1120px) {
+  .header-inner { gap: 18px; }
+  .desktop-nav { gap: 12px; }
+  .desktop-nav a { font-size: 13px; }
+  .brand { width: 175px; }
+  .brand img { width: 175px; }
+  .header-cta { padding: 11px 15px; }
+  .gazebo-grid { gap: 14px; }
+  .gazebo-body { padding: 21px 17px; }
+  .gazebo-card h3 { font-size: 22px; }
+  .amenities-layout { gap: 35px; }
+}
+@media (max-width: 900px) {
+  .container { width: min(var(--max-width), calc(100% - 40px)); }
+  .section { padding: 76px 0; }
+  .desktop-nav, .header-cta { display: none; }
+  .header-inner { height: 77px; }
+  .mobile-nav { display: block; position: relative; margin-left: auto; }
+  .mobile-nav summary { cursor: pointer; list-style: none; display: flex; flex-direction: column; justify-content: center; gap: 5px; border: 1px solid rgba(255,255,255,.4); border-radius: 10px; width: 43px; height: 43px; align-items: center; }
+  .mobile-nav summary::-webkit-details-marker { display: none; }
+  .mobile-nav summary span { width: 19px; height: 2px; background: white; border-radius: 2px; }
+  .mobile-nav nav { position: absolute; right: 0; top: 54px; min-width: 230px; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; padding: 9px; background: white; color: var(--brown-strong); box-shadow: 0 14px 38px rgba(0,0,0,.22); }
+  .mobile-nav nav a { padding: 10px 13px; font-weight: 700; }
+  .mobile-nav nav a:hover { background: #eaf7fe; border-radius: 8px; }
+  .hero { min-height: 565px; }
+  .hero-photo { width: 79%; opacity: .63; }
+  .hero-photo::after { background: linear-gradient(90deg, #1284b4 0%, rgba(18,132,180,.5) 56%, rgba(18,132,180,.1)); }
+  .hero-content { padding-top: 100px; padding-bottom: 145px; }
+  .hero h1 { max-width: 650px; }
+  .hero-corner-label { display: none; }
+  .intro-layout, .amenities-layout { gap: 32px; }
+  .gazebo-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .gallery-grid { grid-template-columns: repeat(2,1fr); }
+  .gallery-tile--wide { grid-column: 1 / -1; }
+  .gallery-tile { height: 230px; }
+  .gallery-tile--wide { height: 285px; }
+  .contact-layout { gap: 36px; }
+}
+@media (max-width: 640px) {
+  .container { width: calc(100% - 36px); }
+  .section { padding: 65px 0; }
+  .hero { min-height: 665px; }
+  .hero-photo { width: 100%; opacity: .38; }
+  .hero-photo::after { background: linear-gradient(90deg, rgba(0,94,139,.88), rgba(0,94,139,.49)); }
+  .hero-content { padding-top: 91px; padding-bottom: 122px; }
+  .hero h1 { font-size: clamp(41px, 9vw, 58px); margin-top: 20px; }
+  .hero p { font-size: 15px; }
+  .eyebrow { font-size: 10px; letter-spacing: .11em; }
+  .hero-actions { gap: 20px; }
+  .hero-wave { height: 51px; }
+  .facts { padding: 13px 0 0; }
+  .facts-grid { grid-template-columns: 1fr; gap: 0; }
+  .fact { padding: 11px 0; }
+  .fact:not(:last-child) { border-right: 0; border-bottom: 1px solid #e5e8e6; }
+  .intro { padding-top: 68px; }
+  .intro-layout, .amenities-layout, .contact-layout { grid-template-columns: 1fr; }
+  .intro-text { margin-top: 8px; }
+  h2 { font-size: 34px; }
+  .section-heading { display: block; }
+  .section-heading > p { margin-top: 17px; }
+  .gazebo-grid, .amenity-grid, .gallery-grid { grid-template-columns: 1fr; }
+  .gazebo-image { height: 230px; }
+  .gazebo-body, .gazebo-card--feature .gazebo-body { padding: 23px; }
+  .gazebo-card h3 { font-size: 25px; }
+  .gazebo-photos--dual { grid-template-columns: 1fr 1fr; }
+  .amenity { min-height: 0; padding: 21px; }
+  .amenity > span { margin-bottom: 9px; }
+  .gallery-tile--wide { grid-column: auto; }
+  .gallery-tile, .gallery-tile--wide { height: 265px; }
+  .contact-section { padding: 72px 0; }
+  .footer-inner { align-items: start; }
+  .footer-inner strong { font-size: 12px; }
+  .footer-inner span { font-size: 11px; }
+}
+/* Для пользователей, отключивших анимацию, вместо движения показываем постер. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+  .hero-video { display: none; }
+}
+
+
+/* Кемпинг: фото, удобства и тарифные карточки */
+.camping { background: linear-gradient(180deg, #edf8fc 0%, #fbfaf7 53%, #f6efe6 100%); padding-top: 102px; padding-bottom: 101px; }
+.camping-heading { margin-bottom: 35px; }
+.camping-layout { display: grid; grid-template-columns: 1.07fr .93fr; gap: 36px; align-items: stretch; }
+.camping-photos { display: grid; grid-template-columns: 1.14fr .86fr; gap: 12px; min-height: 470px; }
+.camping-photo { position: relative; margin: 0; border-radius: 22px; overflow: hidden; min-width: 0; background: #d3e4e5; box-shadow: 0 10px 27px rgba(48, 77, 69, .1); }
+.camping-photo img { width: 100%; height: 100%; object-fit: cover; }
+.camping-photo--main img { object-position: center center; }
+.camping-photo--detail img { object-position: 52% center; }
+.camping-photo::after { content: ""; position: absolute; inset: 48% 0 0; background: linear-gradient(transparent, rgba(21,36,34,.67)); pointer-events: none; }
+.camping-photo figcaption { position: absolute; bottom: 18px; left: 17px; right: 12px; z-index: 1; color: #fff; font-size: 14px; font-weight: 800; line-height: 1.4; text-shadow: 0 1px 6px rgba(0,0,0,.24); }
+.camping-info { padding: 24px 3px 8px; }
+.camping-tag { display: inline-flex; align-items: center; gap: 8px; padding: 7px 13px; border-radius: 99px; background: #e4f2e7; color: #426a42; font-size: 11px; text-transform: uppercase; font-weight: 800; letter-spacing: .07em; }
+.camping-tag .icon { width: 17px; height: 17px; }
+.camping-info h3 { color: var(--brown-strong); font-size: clamp(27px, 2.65vw, 39px); margin: 19px 0 17px; }
+.camping-info > p { color: #596870; font-size: 15px; line-height: 1.8; margin-bottom: 23px; }
+.camping-perks { display: grid; gap: 17px; }
+.camping-perk { display: flex; gap: 14px; align-items: flex-start; }
+.camping-perk > span { display: grid; place-items: center; color: var(--blue-dark); background: #e3f4fb; flex: 0 0 42px; width: 42px; height: 42px; border-radius: 13px; }
+.camping-perk strong, .camping-perk small { display: block; }
+.camping-perk strong { color: var(--brown-strong); font-size: 14px; }
+.camping-perk small { color: var(--muted); font-size: 12px; margin-top: 2px; }
+.camping-price-header { display: flex; justify-content: space-between; gap: 24px; align-items: end; margin-top: 73px; margin-bottom: 23px; }
+.camping-price-header h3 { margin: 8px 0 0; color: var(--brown-strong); font-size: clamp(27px, 2.8vw, 37px); }
+.camping-price-header p { margin: 0 0 3px; color: var(--muted); font-size: 14px; }
+.camping-price-grid { display: grid; grid-template-columns: 1fr 1fr .95fr; gap: 16px; align-items: stretch; }
+.camping-price-card, .camping-extras { border-radius: 20px; background: #fff; padding: 25px; box-shadow: 0 9px 35px rgba(50,70,73,.06); border: 1px solid #e9e6e1; }
+.camping-price-card { display: flex; flex-direction: column; }
+.camping-price-top { display: flex; align-items: center; gap: 10px; color: var(--brown-strong); }
+.camping-price-icon { display: grid; place-items: center; width: 45px; height: 45px; border-radius: 14px; color: var(--blue-dark); background: var(--blue-light); flex: none; }
+.camping-price-icon .icon { width: 24px; height: 24px; }
+.camping-price-name { font-size: 17px; font-weight: 800; line-height: 1.3; }
+.camping-amount { margin: 15px 0 7px; color: var(--brown); font-size: 43px; letter-spacing: -.04em; line-height: 1.2; font-weight: 850; }
+.camping-amount span { font-size: 29px; font-weight: 700; }
+.camping-price-card p { color: #5d6970; font-size: 13px; line-height: 1.7; margin-bottom: 18px; }
+.camping-price-link { display: inline-flex; align-items: center; gap: 6px; color: var(--blue-dark); font-size: 12px; font-weight: 800; margin-top: auto; }
+.camping-price-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+.camping-price-link .icon { width: 15px; height: 15px; }
+.camping-extras { background: #f6ece1; border-color: #eed8c2; }
+.camping-extras h4 { color: var(--brown-strong); font-size: 18px; margin: 3px 0 18px; }
+.camping-extra { display: flex; justify-content: space-between; gap: 10px; border-bottom: 1px solid #e5cdb6; padding: 9px 0; font-size: 13px; color: #655448; }
+.camping-extra strong { color: var(--brown-strong); white-space: nowrap; }
+.camping-extras p { color: #856c55; font-size: 11px; line-height: 1.65; margin: 20px 0 0; }
+
+/* Территория: настоящие фотографии озера и зелёных зон */
+.territory { background: #fff; padding: 100px 0; }
+.territory-grid { display: grid; grid-template-columns: 1.28fr .82fr .82fr; grid-template-rows: repeat(2, 215px); gap: 15px; }
+.territory-tile { position: relative; min-width: 0; margin: 0; border-radius: 20px; overflow: hidden; background: #d1e9eb; }
+.territory-tile--main { grid-row: span 2; }
+.territory-tile:nth-child(4) { grid-column: 2 / 4; }
+.territory-tile img { height: 100%; width: 100%; object-fit: cover; transition: transform .45s; }
+.territory-tile:hover img { transform: scale(1.045); }
+.territory-tile--main img { object-position: 50% 48%; }
+.territory-tile:nth-child(2) img { object-position: 50% 55%; }
+.territory-tile:nth-child(3) img { object-position: 50% 70%; }
+.territory-tile:nth-child(4) img { object-position: 50% 52%; }
+.territory-tile::after { content: ""; position: absolute; inset: 43% 0 0; background: linear-gradient(transparent, rgba(12,39,46,.68)); pointer-events: none; }
+.territory-tile figcaption { position: absolute; z-index: 1; bottom: 20px; left: 21px; color: #fff; text-shadow: 0 1px 5px rgba(0,0,0,.18); }
+.territory-tile figcaption span { display: block; font-size: 16px; font-weight: 850; }
+.territory-tile figcaption small { font-size: 12px; color: rgba(255,255,255,.86); }
+
+@media (max-width: 1120px) {
+  .camping-layout { grid-template-columns: 1fr 1fr; gap: 23px; }
+  .camping-photos { grid-template-columns: 1fr 1fr; }
+  .camping-price-grid { grid-template-columns: repeat(2, 1fr); }
+  .camping-extras { grid-column: 1 / -1; }
+  .territory-grid { grid-template-rows: repeat(2, 195px); }
+}
+@media (max-width: 900px) {
+  .camping-layout { grid-template-columns: 1fr; }
+  .camping-photos { min-height: 365px; height: 400px; }
+  .camping-info { max-width: 720px; }
+  .territory-grid { grid-template-columns: 1.1fr 1fr; grid-template-rows: repeat(3, 210px); }
+  .territory-tile--main { grid-row: span 2; }
+  .territory-tile:nth-child(4) { grid-column: 1 / -1; }
+}
+@media (max-width: 640px) {
+  .camping { padding-top: 72px; padding-bottom: 70px; }
+  .camping-photos { grid-template-columns: 1fr 1fr; height: 340px; min-height: 0; gap: 9px; }
+  .camping-photo { border-radius: 15px; }
+  .camping-photo figcaption { font-size: 11px; left: 10px; bottom: 12px; }
+  .camping-info { padding-top: 5px; }
+  .camping-info h3 { font-size: 29px; }
+  .camping-price-header { display: block; margin-top: 53px; }
+  .camping-price-header p { margin-top: 12px; }
+  .camping-price-grid { grid-template-columns: 1fr; }
+  .camping-extras { grid-column: auto; }
+  .camping-price-card, .camping-extras { padding: 22px; }
+  .territory { padding-top: 70px; padding-bottom: 75px; }
+  .territory-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 285px 185px 185px; gap: 9px; }
+  .territory-tile--main { grid-column: 1 / -1; grid-row: auto; }
+  .territory-tile:nth-child(4) { grid-column: 1 / -1; }
+  .territory-tile { border-radius: 14px; }
+  .territory-tile figcaption { left: 12px; bottom: 12px; }
+  .territory-tile figcaption span { font-size: 13px; }
+}
+
+/* Цены всех типов беседок и веранды */
+.gazebo-price { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.gazebo-price span { color: #68747a; font-size: 11px; font-weight: 700; }
+.gazebo-price strong { color: var(--brown-strong); font-weight: 850; font-size: clamp(22px, 2.4vw, 30px); letter-spacing: -.04em; line-height: 1.22; white-space: nowrap; }
+.gazebo-summary--standard { margin: 20px 0 18px; padding: 13px 15px; color: var(--brown-strong); background: #faf0e5; border-radius: 12px; border: 1px solid #f2dfcb; }
+
+/* Широкая карточка веранды завершает сетку из пяти вариантов */
+.gazebo-card--veranda { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr); }
+.gazebo-card--veranda .gazebo-image { height: auto; min-height: 465px; }
+.gazebo-card--veranda .gazebo-image img { width: 100%; height: 100%; object-fit: cover; object-position: center 52%; }
+.gazebo-card--veranda .gazebo-body { padding: 35px clamp(25px, 3.4vw, 50px); }
+.gazebo-card--veranda .gazebo-body h3 { margin: 9px 0 6px; font-size: 32px; }
+.gazebo-card--veranda .gazebo-summary { margin: 15px 0 21px; }
+.gazebo-card--veranda .feature-list { gap: 9px; }
+@media (max-width: 900px) {
+  .gazebo-card--veranda { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); }
+  .gazebo-card--veranda .gazebo-image { min-height: 495px; }
+  .gazebo-card--veranda .gazebo-body { padding: 24px; }
+}
+@media (max-width: 640px) {
+  .gazebo-card--veranda { grid-column: auto; display: flex; flex-direction: column; }
+  .gazebo-card--veranda .gazebo-image { height: 290px; min-height: 0; }
+  .gazebo-card--veranda .gazebo-body { padding: 23px; }
+  .gazebo-card--veranda .gazebo-body h3 { font-size: 25px; }
+  .gazebo-price strong { font-size: 27px; }
+  .gazebo-card--veranda .photo-badge { max-width: calc(100% - 30px); font-size: 10px; }
+}
+
+
+/* Prices & new leisure section */
+.gazebo-hours { display: flex; align-items: center; gap: 14px; background: #fff; border: 1px solid #d6e9f1; border-radius: 16px; padding: 14px 20px; margin: -4px 0 25px; box-shadow: 0 6px 20px rgba(45,101,125,.05); }
+.gazebo-hours-icon { width: 44px; height: 44px; border-radius: 13px; background: #e6f4fb; color: var(--blue-dark); display: grid; place-items: center; flex-shrink: 0; }
+.gazebo-hours strong { color: var(--brown-strong); font-size: 14px; display: block; }
+.gazebo-hours small { display: block; font-size: 12px; color: var(--muted); margin-top: 2px; }
+#standard-title ~ .included-label { margin-top: 22px; }
+.camping-amount .camping-unit { font-weight: 750; font-size: 13px; color: var(--blue-dark); letter-spacing: 0; margin-left: 6px; white-space: nowrap; }
+.rentals { background: linear-gradient(180deg, #f4fbfd 0%, #fff 100%); padding-top: 90px; padding-bottom: 100px; }
+.rental-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; align-items: stretch; }
+.rental-card { overflow: hidden; display: flex; flex-direction: column; background: #fff; border: 1px solid #e5eae9; border-radius: 23px; box-shadow: var(--shadow); transition: transform .2s, box-shadow .2s; }
+.rental-card:hover { transform: translateY(-4px); box-shadow: 0 20px 47px rgba(35,70,88,.13); }
+.rental-picture { height: 260px; position: relative; overflow: hidden; background: #d8ecf5; }
+.rental-picture img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+.rental-card:hover .rental-picture img { transform: scale(1.035); }
+.rental-card:nth-child(2) .rental-picture img { object-position: center center; }
+.rental-card:nth-child(3) .rental-picture img { object-position: center 72%; }
+.rental-chip { position: absolute; top: 15px; left: 15px; padding: 7px 12px; background: rgba(255,255,255,.94); border-radius: 99px; font-size: 11px; color: var(--brown-strong); font-weight: 800; }
+.rental-info { display: flex; flex-direction: column; flex: 1; padding: 23px 23px 24px; }
+.rental-info h3 { color: var(--brown-strong); font-size: 25px; margin: 0 0 12px; }
+.rental-info p { color: #5d6970; font-size: 14px; margin: 0 0 21px; line-height: 1.65; }
+.rental-bottom { margin-top: auto; border-top: 1px solid #e8e9e7; padding-top: 17px; display: flex; justify-content: space-between; align-items: end; gap: 10px; }
+.rental-bottom > div { display: flex; flex-direction: column; }
+.rental-bottom strong { font-weight: 850; line-height: 1.1; font-size: 29px; color: var(--brown-strong); white-space: nowrap; }
+.rental-bottom span { color: var(--muted); font-size: 12px; margin-top: 6px; }
+.rental-bottom a { display: inline-flex; gap: 4px; align-items: center; color: var(--blue-dark); font-size: 12px; font-weight: 800; white-space: nowrap; }
+.rental-bottom a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.rental-bottom a .icon { width: 15px; height: 15px; }
+/* Five real photos in the territory mosaic. */
+.territory-grid { grid-template-columns: 1.3fr 1.3fr 1fr 1fr; grid-template-rows: repeat(2, 215px); }
+.territory-tile--main { grid-column: span 2; grid-row: span 2; }
+.territory-tile:nth-child(4) { grid-column: auto; }
+.territory-tile--sunset img { object-position: center 59%; }
+@media (max-width: 1120px) {
+  .rental-grid { gap: 15px; }
+  .rental-info { padding: 19px 18px 20px; }
+  .rental-bottom { flex-wrap: wrap; align-items: start; gap: 13px; }
+}
+@media (max-width: 900px) {
+  .rental-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .rental-card:last-child { grid-column: 1 / -1; }
+  .rental-card:last-child .rental-picture { height: 250px; }
+  .territory-grid { grid-template-columns: repeat(2,minmax(0,1fr)); grid-template-rows: 280px 200px 200px; }
+  .territory-tile--main { grid-column: 1 / -1; grid-row: auto; }
+  .territory-tile:nth-child(4) { grid-column: auto; }
+}
+@media (max-width: 640px) {
+  .gazebo-hours { margin-bottom: 19px; padding: 13px; gap: 12px; }
+  .gazebo-hours strong { font-size: 13px; }
+  .gazebo-hours small { font-size: 11px; }
+  .rentals { padding-top: 70px; padding-bottom: 80px; }
+  .rental-grid { grid-template-columns: 1fr; gap: 17px; }
+  .rental-card:last-child { grid-column: auto; }
+  .rental-picture, .rental-card:last-child .rental-picture { height: 245px; }
+  .rental-info { padding: 22px; }
+  .rental-bottom { flex-wrap: nowrap; }
+  .territory-grid { grid-template-rows: 275px 175px 175px; }
+  .territory-tile:nth-child(4) { grid-column: auto; }
+}
+@media (max-width: 385px) {
+  .rental-bottom { flex-wrap: wrap; }
+  .rental-bottom a { padding-top: 6px; }
+  .camping-amount { font-size: 37px; }
+}
+
+
+/* === Домики и банные чаны === */
+.cabins { background: linear-gradient(180deg,#fff 0%,#fffaf4 63%,#f6f0e8 100%); }
+.cabins-heading { margin-bottom: 30px; }
+.cabins-showcase { display: grid; grid-template-columns: minmax(0,1.04fr) minmax(0,.96fr); gap: 24px; align-items: stretch; }
+.cabins-images { display: grid; grid-template-rows: minmax(0,1fr) 168px; gap: 12px; min-height: 675px; min-width: 0; }
+.cabins-interior-photo, .cabins-images-row figure, .hot-tubs-pictures figure { margin: 0; position: relative; border-radius: 20px; overflow: hidden; background: #d5e4e6; }
+.cabins-interior-photo img, .cabins-images-row img, .hot-tubs-pictures img { width: 100%; height: 100%; object-fit: cover; }
+.cabins-interior-photo img { object-position: center 47%; }
+.cabins-images-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; min-height: 0; }
+.cabins-images-row figure:first-child img { object-position: center 55%; }
+.cabins-images-row figure:nth-child(2) img { object-position: center 57%; }
+.cabins-images figcaption, .hot-tubs-pictures figcaption { position: absolute; z-index: 1; left: 18px; right: 12px; bottom: 13px; color: #fff; font-weight: 800; font-size: 13px; text-shadow: 0 2px 7px rgba(0,0,0,.8); }
+.cabins-interior-photo:after, .cabins-images-row figure:after, .hot-tubs-pictures figure:after { content: ''; position: absolute; inset: 65% 0 0; pointer-events: none; background: linear-gradient(transparent,rgba(16,28,30,.68)); }
+.cabins-details { min-width: 0; background: #fff; border: 1px solid #e9e6e1; border-radius: 23px; padding: clamp(22px,3vw,37px); box-shadow: 0 12px 35px rgba(50,70,73,.06); display: flex; flex-direction: column; }
+.cabins-label { align-self: start; display: flex; align-items: center; gap: 9px; background: var(--blue-light); color: var(--blue-dark); border-radius: 99px; padding: 8px 12px; font-size: 12px; font-weight: 800; }
+.cabins-label .icon { width: 17px; height: 17px; }
+.cabins-details h3 { font-size: clamp(26px,2.65vw,35px); line-height: 1.23; color: var(--brown-strong); margin: 21px 0 12px; }
+.cabins-lead { font-size: 14px; line-height: 1.7; color: #5c686e; margin: 0 0 20px; }
+.cabins-main-price { background: #f8ecdd; border: 1px solid #f3dfcb; border-radius: 16px; padding: 15px 18px; display: flex; gap: 4px 14px; align-items: baseline; flex-wrap: wrap; margin-bottom: 15px; }
+.cabins-main-price strong { font-size: 37px; line-height: 1.2; color: var(--brown-strong); white-space: nowrap; letter-spacing: -.035em; }
+.cabins-main-price span { color: #80634e; font-size: 12px; font-weight: 700; }
+.cabins-occupancy { padding: 11px 13px; border: 1px solid #d5eaf4; background: #f1fafd; border-radius: 13px; display: flex; gap: 10px; font-size: 12px; line-height: 1.6; color: #326478; }
+.cabins-occupancy .icon { width: 21px; height: 21px; flex: none; }
+.cabins-occupancy b { font-weight: 900; }
+.cabins-extra-prices { margin: 12px 0 13px; }
+.cabins-extra-prices div { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 9px 0; border-bottom: 1px solid #ece9e5; font-size: 13px; color: #59666e; }
+.cabins-extra-prices strong { color: var(--brown-strong); font-size: 13px; white-space: nowrap; }
+.cabins-details h4 { font-size: 16px; color: var(--brown-strong); margin: 10px 0 13px; }
+.cabins-features { margin: 0 0 22px; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px 12px; }
+.cabins-features li { display: flex; align-items: flex-start; gap: 7px; font-size: 12px; line-height: 1.5; }
+.cabins-features .icon { color: var(--blue-dark); width: 17px; height: 17px; flex: none; margin-top: 1px; }
+.cabins-cta { align-self: start; margin-top: auto; }
+.cabins-amenities { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 16px; margin: 21px 0 67px; }
+.cabins-amenity { background: #fff; border: 1px solid #e9e4dc; border-radius: 18px; padding: 22px; display: flex; align-items: start; gap: 15px; }
+.cabins-amenity > span { width: 44px; height: 44px; border-radius: 13px; background: #edf7fc; display: grid; place-items: center; color: var(--blue-dark); flex: none; }
+.cabins-amenity strong { color: var(--brown-strong); font-size: 15px; }
+.cabins-amenity p { color: #657077; margin: 7px 0 0; font-size: 12px; line-height: 1.6; }
+.hot-tubs { border-radius: 26px; overflow: hidden; background: #f5e9dd; display: grid; grid-template-columns: 1.08fr .92fr; border: 1px solid #e8d4c2; }
+.hot-tubs-pictures { padding: 12px; display: grid; grid-template-columns: 1.2fr .8fr; gap: 10px; min-height: 420px; }
+.hot-tubs-picture img { object-position: center 60%; }
+.hot-tubs-extras-picture img { object-position: center 55%; }
+.hot-tubs-copy { padding: clamp(26px,4.5vw,57px) clamp(24px,3.5vw,48px); align-self: center; }
+.hot-tubs-copy h3 { font-size: clamp(30px,3.25vw,45px); line-height: 1.16; margin: 12px 0 15px; color: var(--brown-strong); }
+.hot-tubs-copy > p:not(.hot-tubs-care) { color: #66574d; font-size: 14px; line-height: 1.8; }
+.hot-tubs-pricing { display: grid; gap: 1px; margin: 20px 0; background: #e1c7b3; border-radius: 14px; overflow: hidden; }
+.hot-tubs-pricing > div { background: #fffaf4; display: grid; grid-template-columns: 125px 1fr; align-items: center; gap: 10px; padding: 14px 16px; }
+.hot-tubs-pricing strong { color: var(--brown-strong); font-size: 22px; white-space: nowrap; }
+.hot-tubs-pricing span { color: #746354; font-size: 13px; line-height: 1.45; }
+.hot-tubs-care { display: flex; gap: 10px; color: #7a4b2e; font-size: 13px; line-height: 1.6; font-weight: 700; margin: 12px 0 22px; }
+.hot-tubs-care .icon { flex: none; color: #9a592b; }
+/* Цены на прокат без дополнительных кнопок */
+.rental-bottom { justify-content: flex-start; }
+.rental-info p strong { color: var(--blue-dark); font-weight: 800; }
+/* Навигация: дополнительный пункт «Домики» */
+@media (min-width:901px) and (max-width:1090px) {
+  .desktop-nav, .header-cta { display:none; }
+  .mobile-nav { display:block; position:relative; margin-left:auto; }
+  .mobile-nav summary { cursor:pointer; list-style:none; display:flex; flex-direction:column; justify-content:center; gap:5px; border:1px solid rgba(255,255,255,.4); border-radius:10px; width:43px; height:43px; align-items:center; }
+  .mobile-nav summary::-webkit-details-marker { display:none; }
+  .mobile-nav summary span { width:19px; height:2px; background:#fff; border-radius:2px; }
+  .mobile-nav nav { position:absolute; right:0; top:54px; min-width:230px; border-radius:16px; overflow:hidden; display:flex; flex-direction:column; padding:9px; background:white; color:var(--brown-strong); box-shadow:0 14px 38px rgba(0,0,0,.22); }
+  .mobile-nav nav a { padding:10px 13px; font-weight:700; }
+  .mobile-nav nav a:hover { background: #eaf7fe; border-radius:8px; }
+}
+@media (max-width:1120px) {
+  .cabins-showcase { grid-template-columns: .9fr 1.1fr; gap:15px; }
+  .cabins-images { min-height: 695px; }
+  .cabins-details { padding: 23px; }
+  .cabins-amenities { gap: 12px; }
+  .cabins-amenity { padding: 16px; gap: 10px; }
+  .cabins-amenity > span { width: 38px; height: 38px; }
+  .hot-tubs-pictures { min-height: 375px; }
+}
+@media (max-width:900px) {
+  .cabins-showcase { grid-template-columns:minmax(0,1fr); }
+  .cabins-images { grid-template-rows: 410px 180px; min-height:0; }
+  .cabins-interior-photo img { object-position:center 56%; }
+  .cabins-details { padding:30px; }
+  .cabins-amenities { grid-template-columns:1fr 1fr; margin-bottom: 52px; }
+  .cabins-amenity:last-child { grid-column:1/-1; }
+  .hot-tubs { grid-template-columns:1fr; }
+  .hot-tubs-pictures { min-height:0; height:350px; }
+  .hot-tubs-copy { padding: 35px; }
+}
+@media (max-width:640px) {
+  .cabins-images { grid-template-rows: 345px 160px; gap:10px; }
+  .cabins-images-row { gap:10px; }
+  .cabins-details { padding: 24px 21px; }
+  .cabins-details h3 { font-size: 27px; }
+  .cabins-features { grid-template-columns:1fr; }
+  .cabins-extra-prices div { font-size: 12px; }
+  .cabins-extra-prices strong { font-size: 12px; }
+  .cabins-amenities { grid-template-columns:1fr; gap:11px; margin:16px 0 43px; }
+  .cabins-amenity:last-child { grid-column:auto; }
+  .cabins-amenity { padding:17px; }
+  .hot-tubs { border-radius:20px; }
+  .hot-tubs-pictures { height:255px; padding:9px; gap:7px; }
+  .hot-tubs-copy { padding:26px 20px 30px; }
+  .hot-tubs-pricing > div { grid-template-columns:105px 1fr; padding:12px; }
+  .hot-tubs-pricing strong { font-size:20px; }
+  .hot-tubs-pricing span { font-size:12px; }
+  .rental-bottom { align-items:start; }
+}
+
+@media (max-width:380px) {
+  .cabins-cta { width: 100%; font-size: 12px; padding: 12px; text-align: center; white-space: normal; }
+  .cabins-extra-prices div { gap: 8px; }
+  .hot-tubs-pricing > div { grid-template-columns: 95px minmax(0,1fr); }
+}
+
+
+/* Семейный отдых: детская площадка с зацикленным видео без звука. */
+.playground {
+  background: linear-gradient(135deg,#fff9f0 0%,#faf6ee 38%,#eef9fc 100%);
+  padding-top: 100px;
+  padding-bottom: 100px;
+  overflow: hidden;
+}
+.playground-layout {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,.94fr);
+  gap: clamp(30px,5vw,82px);
+  align-items: center;
+}
+.playground-copy { min-width: 0; }
+.playground-copy h2 { font-size: clamp(36px,3.8vw,54px); margin: 13px 0 23px; }
+.playground-copy > p { max-width: 560px; color: #637077; font-size: 15px; line-height: 1.85; margin: 0 0 17px; }
+.playground-copy .playground-lead { color: var(--brown-strong); font-size: 18px; font-weight: 680; line-height: 1.72; }
+.playground-features { display: flex; flex-wrap: wrap; gap: 10px; margin: 25px 0 25px; }
+.playground-features span {
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1px solid #d9e9ee; background: rgba(255,255,255,.9);
+  padding: 10px 14px; border-radius: 99px; color: #5f4836;
+  font-size: 13px; font-weight: 700;
+  box-shadow: 0 5px 18px rgba(61,75,77,.035);
+}
+.playground-features .icon { color: var(--blue); width: 17px; height: 17px; }
+.playground-copy .playground-footnote { color: var(--muted); font-size: 13px; padding-top: 4px; }
+.playground-video-panel { min-width: 0; position: relative; }
+.playground-video-wrap {
+  height: 560px; overflow: hidden; border-radius: 30px;
+  background: #d4e9ef url('assets/playground-video-poster.webp') center 42% / cover no-repeat;
+  box-shadow: 0 22px 65px rgba(50,68,70,.18);
+  position: relative; isolation: isolate;
+}
+.playground-video { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 54%; }
+.playground-video-wrap:after { content: ''; pointer-events: none; position:absolute; inset: 50% 0 0; background: linear-gradient(transparent,rgba(22,47,52,.3)); }
+.playground-video-label {
+  position: absolute; right: 20px; bottom: 20px; left: 20px;
+  display: inline-flex; width: fit-content; max-width: calc(100% - 40px); align-items: center; gap: 9px;
+  border: 1px solid rgba(255,255,255,.65); border-radius: 99px;
+  background: rgba(17,67,80,.62); backdrop-filter: blur(8px); color: #fff;
+  padding: 11px 16px; font-size: 12px; font-weight: 700;
+  pointer-events: none;
+}
+.playground-video-dot { height: 8px; width: 8px; flex: none; border-radius: 50%; background: #b7f2cc; }
+/* Дополнительный пункт «Детям»: не допускаем переполнения шапки. */
+@media (min-width: 1091px) {
+  .desktop-nav { gap: 14px; }
+  .desktop-nav a { font-size: 13px; }
+}
+@media (min-width: 1091px) and (max-width: 1290px) {
+  .header-cta { display: none; }
+}
+@media (max-width: 900px) {
+  .playground-layout { grid-template-columns: 1fr; gap: 34px; }
+  .playground-copy { max-width: 670px; }
+  .playground-video-wrap { height: 470px; }
+}
+@media (max-width: 640px) {
+  .playground { padding-top: 72px; padding-bottom: 70px; }
+  .playground-copy h2 { font-size: 35px; }
+  .playground-copy .playground-lead { font-size: 16px; }
+  .playground-video-wrap { height: 440px; border-radius: 20px; }
+  .playground-features { gap: 8px; }
+  .playground-features span { font-size: 12px; padding: 9px 12px; }
+  .playground-video-label { left: 12px; right: 12px; bottom: 12px; max-width: calc(100% - 24px); font-size: 11px; padding: 9px 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .playground-video { display: none; }
+}
+
+/* Числа цен в кемпинге теперь берутся из prices.js. */
+.camping-amount strong[data-price] { font-size: inherit; font-weight: inherit; }

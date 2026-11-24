@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#167dab" />
+  <meta name="description" content="Территория отдыха «Голубое Озеро» в Ростовской области: деревянные беседки, веранды, уютные домики с банными чанами, кемпинг у озера, катамараны, сап-борды, шезлонги и детская площадка. Мангальные зоны и семейный отдых." />
+  <title>Голубое Озеро — домики, беседки, кемпинг и отдых на воде</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Все цены берутся из одного файла. defer запускает код после разбора HTML. -->
+  <script src="prices.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержанию</a>
+
+  <!-- SVG-иконки встроены в HTML: сторонние библиотеки не нужны. -->
+  <svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m12 19 0-14m-6 6 6-6 6 6"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20v-2a6 6 0 0 1 12 0v2m2-14a3 3 0 0 1 0 6m2 8v-2a6 6 0 0 0-4-5.7"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-car" viewBox="0 0 24 24"><path d="M5 16H3v-5l2-5h14l2 5v5h-2M5 16h14M5 16v2m14-2v2M3 11h18M7 6l-1 5m11-5 1 5"/><circle cx="7" cy="16" r="1"/><circle cx="17" cy="16" r="1"/></symbol>
+    <symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 22c4.1 0 7-3 7-7 0-3.8-2-5.8-3.5-7.5.1 3.1-1.1 4.8-2.8 5.5.7-4.3-1.1-7.6-4.2-11C9 6.8 5 9.5 5 15c0 4 3 7 7 7Z"/><path d="M12 22c2 0 3.5-1.5 3.5-3.7 0-1.5-1.2-3.3-2.2-4.1-.1 1.6-.7 2.2-1.5 2.6-.1-1.8-.8-2.8-1.8-3.5C9.6 16 8.5 17 8.5 18.3 8.5 20.5 10 22 12 22Z"/></symbol>
+    <symbol id="i-plug" viewBox="0 0 24 24"><path d="M8 3v5m8-5v5M5 8h14v4a7 7 0 0 1-7 7v3m0-3a7 7 0 0 1-7-7V8"/></symbol>
+    <symbol id="i-fridge" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M6 11h12m-9-5v2m0 6v2"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-water" viewBox="0 0 24 24"><path d="M2 15c2.2 0 2.2 2 4.4 2s2.2-2 4.4-2 2.2 2 4.4 2 2.2-2 4.4-2 2.2 2 4.4 2M2 9c2.2 0 2.2 2 4.4 2s2.2-2 4.4-2 2.2 2 4.4 2 2.2-2 4.4-2 2.2 2 4.4 2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m4 12 5 5L20 6"/></symbol>
+    <symbol id="i-tree" viewBox="0 0 24 24"><path d="M12 22v-5M4 17l8-13 8 13H4ZM7 12h10"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 11 9-8 9 8v9H3v-9Zm5 9v-7h8v7"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 7h4l2-3h4l2 3h4v13H4V7Z"/><circle cx="12" cy="13.5" r="3.5"/></symbol>
+    <symbol id="i-utensils" viewBox="0 0 24 24"><path d="M5 2v9m3-9v9m3-9v9M5 7h6m-3 4v11m9-20v20m0-20c-4 3-4 10 0 12"/></symbol>
+    <symbol id="i-tent" viewBox="0 0 24 24"><path d="m12 3 10 17H2L12 3Zm0 0v17m-4 0 4-7 4 7"/></symbol>
+    <symbol id="i-shower" viewBox="0 0 24 24"><path d="M4 20V9a6 6 0 0 1 12 0v2M14 10h5v4h-8v-2c0-1.1 1-2 3-2Zm-1 8v2m4-3v3m4-2v2"/></symbol>
+    <symbol id="i-van" viewBox="0 0 24 24"><rect x="2" y="6" width="17" height="11" rx="2"/><path d="M19 10h2l1 3v4h-3M6 17v2m10-2v2M6 10h6v5H6z"/><circle cx="6" cy="18" r="1.5"/><circle cx="17" cy="18" r="1.5"/></symbol>
+    <symbol id="i-sink" viewBox="0 0 24 24"><path d="M2 11h20v3c0 5-3 7-10 7S2 19 2 14v-3Zm10 10v1M15 7h-4a3 3 0 0 0-3 3v1m4-8a3 3 0 0 1 3 3v2"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Голубое Озеро — на главную">
+        <span class="brand-kicker">Территория отдыха</span>
+        <img src="assets/logo-white.png" alt="Голубое Озеро" width="185" height="54" />
+      </a>
+
+      <nav class="desktop-nav" aria-label="Основная навигация">
+        <a href="#about">О нас</a>
+        <a href="#gazebos">Беседки</a>
+        <a href="#cabins">Домики</a>
+        <a href="#camping">Кемпинг</a>
+        <a href="#rentals">Прокат</a>
+        <a href="#playground">Детям</a>
+        <a href="#amenities">Удобства</a>
+        <a href="#gallery">Галерея</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+
+      <a class="btn btn--brown header-cta" href="#gazebos">Выбрать беседку <svg class="icon"><use href="#i-arrow"/></svg></a>
+
+      <details class="mobile-nav">
+        <summary aria-label="Открыть меню"><span></span><span></span><span></span></summary>
+        <nav aria-label="Меню на мобильном">
+          <a href="#about">О нас</a>
+          <a href="#gazebos">Беседки</a>
+        <a href="#cabins">Домики</a>
+          <a href="#camping">Кемпинг</a>
+        <a href="#rentals">Прокат</a>
+        <a href="#playground">Детям</a>
+          <a href="#amenities">Удобства</a>
+          <a href="#gallery">Галерея</a>
+          <a href="#contacts">Контакты</a>
+        </nav>
+      </details>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <!-- Зацикленное фоновое видео: без звука, автоматически воспроизводится как GIF. -->
+      <div class="hero-photo" aria-hidden="true">
+        <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/hero-video-poster.webp">
+          <source src="assets/hero-background.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <span class="eyebrow eyebrow--light"><span class="eyebrow-dot"></span> Территория отдыха «Голубое Озеро»</span>
+        <h1 id="hero-title">У природы есть<br/><em>особенное место</em><br/>для ваших встреч</h1>
+        <p>Домики у озера, беседки, уютный кемпинг, красивые закаты и отдых с близкими. Здесь хочется собираться снова.</p>
+        <div class="hero-actions">
+          <a class="btn btn--brown btn--large" href="#gazebos">Посмотреть беседки <svg class="icon"><use href="#i-arrow"/></svg></a>
+          <a class="hero-text-link" href="#about">Узнать о базе <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <div class="hero-corner-label" aria-hidden="true"><svg class="icon"><use href="#i-water"/></svg> Отдых ближе к природе</div>
+      <svg class="hero-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 53C170 98 296 24 493 44c177 18 252 64 448 30 180-32 325-79 499-23v39H0Z" fill="#fbfaf7"/></svg>
+    </section>
+
+    <section class="facts" aria-label="Особенности отдыха">
+      <div class="container facts-grid">
+        <div class="fact"><span class="fact-icon"><svg class="icon"><use href="#i-home"/></svg></span><span><strong>Домики и беседки</strong><small>Выбирайте свой отдых</small></span></div>
+        <div class="fact"><span class="fact-icon"><svg class="icon"><use href="#i-users"/></svg></span><span><strong>Отдых с близкими</strong><small>От семейного дня до праздника</small></span></div>
+        <div class="fact"><span class="fact-icon"><svg class="icon"><use href="#i-tent"/></svg></span><span><strong>Кемпинг у озера</strong><small>Палатки и автодома</small></span></div>
+      </div>
+    </section>
+
+    <section class="intro section" id="about" aria-labelledby="intro-title">
+      <div class="container intro-layout">
+        <div>
+          <span class="eyebrow">Рады вас видеть</span>
+          <h2 id="intro-title">Отдыхать вместе — <span class="accent-blue">лучше всего.</span></h2>
+        </div>
+        <div class="intro-text">
+          <p>«Голубое Озеро» — территория для тёплых встреч, дней рождения, семейных праздников и отдыха с друзьями. Можно провести день в беседке, остаться в уютном домике или приехать с палаткой и автодомом в кемпинг.</p>
+          <p>Выбирайте место под свою компанию: веранду для 2–4 человек, беседку для праздника или домик для отдыха с ночёвкой. А рядом — прогулки по озеру, кемпинг и банные чаны.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="gazebos section" id="gazebos" aria-labelledby="gazebos-title">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Подберите своё место</span>
+            <h2 id="gazebos-title">Наши <span class="accent-blue">беседки и веранды</span></h2>
+          </div>
+          <p>От мини-веранд для 2–4 гостей до большой беседки для праздников. Выбирайте место под свою компанию.</p>
+        </div>
+
+        <div class="gazebo-hours" role="note">
+          <span class="gazebo-hours-icon"><svg class="icon"><use href="#i-clock"/></svg></span>
+          <span><strong>Все беседки сдаются в аренду с 08:00 до 22:00</strong><small>Отдыхайте целый день — выбирайте подходящий формат для своей компании.</small></span>
+        </div>
+
+        <div class="gazebo-grid">
+          <!-- Большая беседка: фото №5 и №6, предоставлены владельцем -->
+          <article class="gazebo-card gazebo-card--feature" aria-labelledby="large-title">
+            <div class="gazebo-image">
+              <div class="gazebo-photos gazebo-photos--dual">
+                <img src="assets/photo-large-evening.webp" alt="Большая беседка на территории у озера на закате" loading="lazy" />
+                <img src="assets/photo-large-new.webp" alt="Большая крытая беседка с просторной площадкой и мангалом перед ней" loading="lazy" />
+              </div>
+              <span class="photo-badge"><svg class="icon"><use href="#i-users"/></svg> Для большой компании</span>
+            </div>
+            <div class="gazebo-body">
+              <h3 id="large-title">Большая беседка</h3>
+              <span class="capacity"><svg class="icon"><use href="#i-users"/></svg> От 20 человек и более</span>
+              <p class="gazebo-summary">Самая большая беседка: полностью выполнена из дерева, при этом уютная и с хорошим обзором территории. Отличный вариант для больших праздников.</p>
+              <ul class="feature-list">
+                <li><svg class="icon"><use href="#i-check"/></svg> Своя линия кухни и холодильник</li>
+                <li><svg class="icon"><use href="#i-check"/></svg> Столы и лавки можно расставить по-разному</li>
+                <li><svg class="icon"><use href="#i-check"/></svg> Розетки и вечернее освещение</li>
+                <li><svg class="icon"><use href="#i-check"/></svg> Собственный мангал рядом</li>
+                <li><svg class="icon"><use href="#i-check"/></svg> Парковка всех автомобилей включена</li>
+              </ul>
+              <details class="more-details"><summary>Подробнее о большой беседке <span aria-hidden="true">+</span></summary><p>Можно организовать отдельные столы для взрослых и детей, подключить свою колонку, зарядить телефоны и провести большой семейный праздник.</p></details>
+              <div class="card-footer"><div class="gazebo-price"><span>Стоимость аренды</span><strong data-price="gazebos.large">…</strong></div><a class="card-link" href="#contacts">Связаться <svg class="icon"><use href="#i-arrow"/></svg></a></div>
+            </div>
+          </article>
+
+          <!-- Средняя беседка: открытый подиум и диванчики; фото №4 -->
+          <article class="gazebo-card" aria-labelledby="medium-title">
+            <div class="gazebo-image">
+              <img src="assets/photo-medium-open.webp" alt="Средняя беседка с открытым подиумом среди деревьев" loading="lazy" />
+              <span class="photo-badge photo-badge--blue">Открытый подиум</span>
+            </div>
+            <div class="gazebo-body">
+              <h3 id="medium-title">Средняя беседка</h3>
+              <span class="capacity"><svg class="icon"><use href="#i-users"/></svg> От 10 до 20 человек</span>
+              <p class="gazebo-summary">Уютная беседка с открытым подиумом и диванчиками — дополнительным пространством для отдыха на свежем воздухе.</p>
+              <ul class="feature-list">
+                <li><svg class="icon"><use href="#i-check"/></svg> Открытый подиум с диванчиками</li>
+                <li><svg class="icon"><use href="#i-check"/></svg> Большой холодильник</li>
+                <li><svg class="icon"><use href="#i-check"/></svg> Розетки и освещение</li>
+                <li><svg class="icon"><use href="#i-check"/></svg> Парковка всех автомобилей включена</li>
+              </ul>
+              <details class="more-details"><summary>Для чего использовать подиум? <span aria-hidden="true">+</span></summary><p>Подиум подойдёт для отдыха на диванчиках, танцев, фотозоны или загара на шезлонгах.</p></details>
+              <div class="card-footer"><div class="gazebo-price"><span>Стоимость аренды</span><strong data-price="gazebos.medium">…</strong></div><a class="card-link" href="#contacts">Связаться <svg class="icon"><use href="#i-arrow"/></svg></a></div>
+            </div>
+          </article>
+
+          <!-- Средняя плюс: полностью крытая версия; фото №3 -->
+          <article class="gazebo-card" aria-labelledby="medium-plus-title">
+            <div class="gazebo-image">
+              <img src="assets/photo-medium-plus.webp" alt="Полностью крытая средняя беседка плюс с занавесками и деревянными стенами" loading="lazy" />
+              <span class="photo-badge photo-badge--blue">Полностью крытая</span>
+            </div>
+            <div class="gazebo-body">
+              <h3 id="medium-plus-title">Средняя плюс</h3>
+              <span class="capacity"><svg class="icon"><use href="#i-users"/></svg> От 10 до 20 человек</span>
+              <p class="gazebo-summary">Главное отличие от обычной средней — <strong>вся площадка полностью под крышей</strong>. Уютное решение для встреч с семьёй и друзьями.</p>
+              <ul class="feature-list">
+                <li><svg class="icon"><use href="#i-check"/></svg> Полностью крытое пространство</li>
+                <li><svg class="icon"><use href="#i-check"/></svg> Деревянная отделка и уютная атмосфера</li>
+                <li><svg class="icon"><use href="#i-check"/></svg> Для посиделок и праздников</li>
+              </ul>
+              <div class="variant-note"><svg class="icon"><use href="#i-water"/></svg> Средняя — с открытым подиумом; «Средняя плюс» — полностью крытая.</div>
+              <div class="card-footer"><div class="gazebo-price"><span>Стоимость аренды</span><strong data-price="gazebos.mediumPlus">…</strong></div><a class="card-link" href="#contacts">Связаться <svg class="icon"><use href="#i-arrow"/></svg></a></div>
+            </div>
+          </article>
+
+          <!-- Стандарт: фото №1 и №2 -->
+          <article class="gazebo-card" aria-labelledby="standard-title">
+            <div class="gazebo-image">
+              <div class="gazebo-photos gazebo-photos--dual">
+                <img src="assets/photo-standard-interior.webp" alt="Внутри стандартной беседки: деревянные стол и лавки с видом на озеро" loading="lazy" />
+                <img src="assets/photo-standard-exterior.webp" alt="Стандартные беседки на территории среди деревьев" loading="lazy" />
+              </div>
+              <span class="photo-badge photo-badge--cream">До 10 человек</span>
+            </div>
+            <div class="gazebo-body">
+              <h3 id="standard-title">Беседка стандарт</h3>
+              <span class="capacity"><svg class="icon"><use href="#i-users"/></svg> До 10 человек</span>
+              <p class="included-label">В стоимость включено:</p>
+              <ul class="feature-list feature-list--compact">
+                <li><svg class="icon"><use href="#i-check"/></svg> Одно парковочное место</li>
+                <li><svg class="icon"><use href="#i-check"/></svg> Мангал и мангальная зона</li>
+                <li><svg class="icon"><use href="#i-check"/></svg> Мойка с проточной водой</li>
+                <li><svg class="icon"><use href="#i-check"/></svg> Холодильник и комфортный санузел</li>
+              </ul>
+              <div class="card-footer"><div class="gazebo-price"><span>Стоимость аренды</span><strong data-price="gazebos.standard">…</strong></div><a class="card-link" href="#contacts">Связаться <svg class="icon"><use href="#i-arrow"/></svg></a></div>
+            </div>
+          </article>
+          <!-- Крытая веранда: фотография и сведения предоставлены владельцем -->
+          <article class="gazebo-card gazebo-card--veranda" aria-labelledby="veranda-title">
+            <div class="gazebo-image gazebo-image--veranda">
+              <img src="assets/photo-veranda.webp" alt="Крытые деревянные мини-веранды у лестницы на территории отдыха Голубое Озеро" loading="lazy" />
+              <span class="photo-badge photo-badge--blue">Уютно вдвоём или компанией</span>
+            </div>
+            <div class="gazebo-body">
+              <span class="eyebrow">Для небольшой компании</span>
+              <h3 id="veranda-title">Веранда</h3>
+              <span class="capacity"><svg class="icon"><use href="#i-users"/></svg> От 2 до 4 человек</span>
+              <p class="gazebo-summary">Крытая мини-беседка для спокойного отдыха у озера. Подойдёт для пары, семьи или небольшой компании друзей.</p>
+              <p class="included-label">В стоимость входят те же удобства, что и для беседки стандарт:</p>
+              <ul class="feature-list">
+                <li><svg class="icon"><use href="#i-check"/></svg> Одно парковочное место</li>
+                <li><svg class="icon"><use href="#i-check"/></svg> Пользование мангальной зоной и мангалами</li>
+                <li><svg class="icon"><use href="#i-check"/></svg> Мойка с проточной водой</li>
+                <li><svg class="icon"><use href="#i-check"/></svg> Холодильник</li>
+                <li><svg class="icon"><use href="#i-check"/></svg> Комфортный санузел</li>
+              </ul>
+              <div class="card-footer"><div class="gazebo-price"><span>Стоимость аренды</span><strong data-price="gazebos.veranda">…</strong></div><a class="card-link" href="#contacts">Связаться <svg class="icon"><use href="#i-arrow"/></svg></a></div>
+            </div>
+          </article>
+        </div>
+        <p class="media-note">Все фотографии беседок и веранды — настоящие снимки территории отдыха «Голубое Озеро».</p>
+      </div>
+    </section>
+
+
+    <!-- Домики: новые реальные фотографии, тарифы за сутки -->
+    <section class="cabins section" id="cabins" aria-labelledby="cabins-title">
+      <div class="container">
+        <div class="section-heading cabins-heading">
+          <div>
+            <span class="eyebrow">Оставайтесь подольше</span>
+            <h2 id="cabins-title">Уютные <span class="accent-blue">домики у озера</span></h2>
+          </div>
+          <p>Всего четыре домика для отдыха с ночёвкой. Всё необходимое для комфортного проживания и особенных вечеров на природе.</p>
+        </div>
+
+        <div class="cabins-showcase">
+          <div class="cabins-images">
+            <figure class="cabins-interior-photo">
+              <img src="assets/cabin-interior.webp" alt="Внутри домика: двуспальная кровать, раскладной диван и кондиционер" loading="lazy" />
+              <figcaption>Светлый и уютный интерьер</figcaption>
+            </figure>
+            <div class="cabins-images-row">
+              <figure><img src="assets/cabin-exterior.webp" alt="Деревянный домик на территории отдыха Голубое Озеро" loading="lazy" /><figcaption>Домик снаружи</figcaption></figure>
+              <figure><img src="assets/cabin-grill.webp" alt="Мангал и зона отдыха на веранде рядом с домиком" loading="lazy" /><figcaption>Веранда и мангал</figcaption></figure>
+            </div>
+          </div>
+
+          <article class="cabins-details" aria-labelledby="cabins-offer-title">
+            <span class="cabins-label"><svg class="icon"><use href="#i-home"/></svg> Для отдыха с ночёвкой</span>
+            <h3 id="cabins-offer-title">Домик для семьи или компании</h3>
+            <p class="cabins-lead">Пространство для спокойного отдыха: двуспальная кровать, диван, кондиционер и всё нужное под рукой.</p>
+            <div class="cabins-main-price"><strong data-price="cabins.base">…</strong><span>за сутки · 2 взрослых</span></div>
+            <div class="cabins-occupancy" role="note">
+              <svg class="icon"><use href="#i-users"/></svg>
+              <div><strong>Максимальное размещение:</strong> 3 взрослых <b>или</b> 2 взрослых и 2 ребёнка.</div>
+            </div>
+            <div class="cabins-extra-prices">
+              <div><span>Дополнительный взрослый</span><strong data-price="cabins.extraAdult" data-price-prefix="+" data-price-suffix="/сутки">…</strong></div>
+              <div><span>Ребёнок</span><strong data-price="cabins.child" data-price-prefix="+" data-price-suffix="/сутки">…</strong></div>
+            </div>
+            <h4>Что есть в домике</h4>
+            <ul class="cabins-features">
+              <li><svg class="icon"><use href="#i-check"/></svg> Двуспальная кровать</li>
+              <li><svg class="icon"><use href="#i-check"/></svg> Раскладной диван</li>
+              <li><svg class="icon"><use href="#i-check"/></svg> Кондиционер (сплит-система)</li>
+              <li><svg class="icon"><use href="#i-check"/></svg> Холодильник</li>
+              <li><svg class="icon"><use href="#i-check"/></svg> Телевизор</li>
+              <li><svg class="icon"><use href="#i-check"/></svg> Отдельный Wi-Fi для гостей домиков</li>
+            </ul>
+            <a class="btn btn--brown cabins-cta" href="#contacts">Узнать о свободных домиках <svg class="icon"><use href="#i-arrow"/></svg></a>
+          </article>
+        </div>
+
+        <div class="cabins-amenities" aria-label="Удобства рядом с домиками">
+          <div class="cabins-amenity"><span><svg class="icon"><use href="#i-flame"/></svg></span><div><strong>Веранда и мангал</strong><p>У выхода из каждого домика — небольшая веранда со столиком и мангал.</p></div></div>
+          <div class="cabins-amenity"><span><svg class="icon"><use href="#i-utensils"/></svg></span><div><strong>Общая кухня</strong><p>Всё необходимое для приготовления еды и стол для обедов.</p></div></div>
+          <div class="cabins-amenity"><span><svg class="icon"><use href="#i-shower"/></svg></span><div><strong>Душевые и туалеты</strong><p>Отдельно, в двух шагах от домиков: 2 душа и 2 туалета, по одному на каждые 2 домика.</p></div></div>
+        </div>
+
+        <div class="hot-tubs" aria-labelledby="hot-tubs-title">
+          <div class="hot-tubs-pictures">
+            <figure class="hot-tubs-picture"><img src="assets/hot-tub.webp" alt="Большой банный чан с печью и лестницей на деревянной площадке" loading="lazy" /><figcaption>Банный чан под открытым небом</figcaption></figure>
+            <figure class="hot-tubs-extras-picture"><img src="assets/hot-tub-extras.webp" alt="Грейпфруты и веточки хвои для добавления в банный чан" loading="lazy" /><figcaption>Ароматные дополнения</figcaption></figure>
+          </div>
+          <div class="hot-tubs-copy">
+            <span class="eyebrow">Для особенного вечера</span>
+            <h3 id="hot-tubs-title">Банные <span class="accent-blue">чаны</span></h3>
+            <p>Рядом с двумя из четырёх домиков расположены банные чаны. Можно расслабиться в горячей воде на свежем воздухе и провести вечер в приятной атмосфере.</p>
+            <div class="hot-tubs-pricing"><div><strong data-price="hotTub.evening">…</strong><span>за вечер · банный чан</span></div><div><strong data-price="hotTub.extras" data-price-prefix="+">…</strong><span>тарелка грейпфрутов и ветки хвои в чан</span></div></div>
+            <p class="hot-tubs-care"><svg class="icon"><use href="#i-flame"/></svg><span>Мы сами растопим чан и при необходимости будем поддерживать жар.</span></p>
+            <a class="text-link" href="#contacts">Уточнить доступность чана <svg class="icon"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="camping section" id="camping" aria-labelledby="camping-title">
+      <div class="container">
+        <div class="section-heading camping-heading">
+          <div>
+            <span class="eyebrow">Останьтесь под звёздами</span>
+            <h2 id="camping-title">Кемпинг <span class="accent-blue">на природе</span></h2>
+          </div>
+          <p>Свой уютный уголок на территории отдыха: для палатки, автомобиля или автодома.</p>
+        </div>
+        <div class="camping-layout">
+          <div class="camping-photos" aria-label="Фотографии кемпинга">
+            <figure class="camping-photo camping-photo--main">
+              <img src="assets/camping-pitches.webp" alt="Отдельные места кемпинга среди деревьев с низкими ограждениями, столами и скамьями" loading="lazy" />
+              <figcaption>Ваш отдельный уголок среди деревьев</figcaption>
+            </figure>
+            <figure class="camping-photo camping-photo--detail">
+              <img src="assets/camping-wash-station.webp" alt="Общая мойка с проточной водой в зоне кемпинга" loading="lazy" />
+              <figcaption>Общие островки с мойками</figcaption>
+            </figure>
+          </div>
+          <div class="camping-info">
+            <span class="camping-tag"><svg class="icon"><use href="#i-tree"/></svg> Место для своего лагеря</span>
+            <h3>Всё для отдыха на свежем воздухе</h3>
+            <p>Кемпинг разделён на отдельные участки — уютные «квадратики», отделённые друг от друга невысоким заборчиком примерно по колено. У каждого места есть собственный мангал, диванчики и столы. Обычно на участке — <strong>4 диванчика и 2 стола</strong>.</p>
+            <div class="camping-perks">
+              <div class="camping-perk"><span><svg class="icon"><use href="#i-flame"/></svg></span><div><strong>Мангал у каждого места</strong><small>Уютная зона со столами и диванчиками</small></div></div>
+              <div class="camping-perk"><span><svg class="icon"><use href="#i-sink"/></svg></span><div><strong>Холодильники и мойки</strong><small>Общие островки по территории кемпинга</small></div></div>
+              <div class="camping-perk"><span><svg class="icon"><use href="#i-shower"/></svg></span><div><strong>Уютный душ всю ночь</strong><small>Доступен в ночное время только гостям кемпинга</small></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="camping-price-header">
+          <div><span class="eyebrow">Планируйте отдых</span><h3>Стоимость размещения</h3></div>
+          <p>Все тарифы указаны <strong>за сутки</strong>. В базовые тарифы входят два взрослых и дети.</p>
+        </div>
+        <div class="camping-price-grid">
+          <article class="camping-price-card" aria-labelledby="tent-price-title">
+            <div class="camping-price-top"><span class="camping-price-icon"><svg class="icon"><use href="#i-tent"/></svg></span><span class="camping-price-name" id="tent-price-title">Палатка + автомобиль</span></div>
+            <div class="camping-amount"><strong data-price="camping.tentWithCar">…</strong><small class="camping-unit">/ сутки</small></div>
+            <p>Размещение для <strong>2 взрослых и детей</strong>. Свой огороженный участок с местом для отдыха.</p>
+            <a href="#contacts" class="camping-price-link">Уточнить свободные места <svg class="icon"><use href="#i-arrow"/></svg></a>
+          </article>
+          <article class="camping-price-card" aria-labelledby="van-price-title">
+            <div class="camping-price-top"><span class="camping-price-icon"><svg class="icon"><use href="#i-van"/></svg></span><span class="camping-price-name" id="van-price-title">Автодом</span></div>
+            <div class="camping-amount"><strong data-price="camping.campervan">…</strong><small class="camping-unit">/ сутки</small></div>
+            <p>Размещение автодома для <strong>2 взрослых и детей</strong> с доступом к удобствам кемпинга.</p>
+            <a href="#contacts" class="camping-price-link">Уточнить свободные места <svg class="icon"><use href="#i-arrow"/></svg></a>
+          </article>
+          <aside class="camping-extras" aria-labelledby="extras-title">
+            <h4 id="extras-title">Дополнительные опции</h4>
+            <div class="camping-extra"><span>Дополнительный взрослый</span><strong data-price="camping.extraAdult" data-price-prefix="+" data-price-suffix="/сутки">…</strong></div>
+            <div class="camping-extra"><span>Дополнительная палатка</span><strong data-price="camping.extraTent" data-price-prefix="+" data-price-suffix="/сутки">…</strong></div>
+            <p>Все цены в разделе кемпинга рассчитаны на сутки размещения.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="territory section" id="territory" aria-labelledby="territory-title">
+      <div class="container">
+        <div class="section-heading territory-heading">
+          <div>
+            <span class="eyebrow">Вокруг — природа</span>
+            <h2 id="territory-title">Озеро, солнце <span class="accent-blue">и простор</span></h2>
+          </div>
+          <p>Настоящие фотографии наших любимых мест: чистая вода, зелёные аллеи и уголки для отдыха.</p>
+        </div>
+        <div class="territory-grid">
+          <figure class="territory-tile territory-tile--main">
+            <img src="assets/territory-lake-shore.webp" alt="Прозрачная вода Голубого Озера и песчаное мелководье" loading="lazy" />
+            <figcaption><span>Вода и берег</span><small>Голубое Озеро</small></figcaption>
+          </figure>
+          <figure class="territory-tile">
+            <img src="assets/territory-hay-bales.webp" alt="Стога сена, шезлонг и деревья на территории отдыха" loading="lazy" />
+            <figcaption><span>Атмосфера природы</span></figcaption>
+          </figure>
+          <figure class="territory-tile">
+            <img src="assets/territory-water-pier.webp" alt="Вид на озеро и деревянный пирс" loading="lazy" />
+            <figcaption><span>Озеро и пирс</span></figcaption>
+          </figure>
+          <figure class="territory-tile">
+            <img src="assets/territory-flowering-trees.webp" alt="Цветущие деревья и деревянные скамейки на территории отдыха" loading="lazy" />
+            <figcaption><span>Тихие уголки</span></figcaption>
+          </figure>
+          <figure class="territory-tile territory-tile--sunset">
+            <img src="assets/territory-sunset.webp" alt="Красный закат над беседками на территории отдыха Голубое Озеро" loading="lazy" />
+            <figcaption><span>Закаты на Голубом Озере</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="rentals section" id="rentals" aria-labelledby="rentals-title">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">На воде и у берега</span>
+            <h2 id="rentals-title">Прокат и <span class="accent-blue">отдых у озера</span></h2>
+          </div>
+          <p>Отправляйтесь на прогулку по воде или устраивайтесь на шезлонге с видом на озеро.</p>
+        </div>
+        <div class="rental-grid">
+          <article class="rental-card">
+            <div class="rental-picture">
+              <img src="assets/rental-catamaran.webp" alt="Катамаран на Голубом Озере — прогулка по воде" loading="lazy" />
+              <span class="rental-chip">Прогулка по воде</span>
+            </div>
+            <div class="rental-info">
+              <h3>Катамараны</h3>
+              <p>Отдыхайте на воде и любуйтесь озером с нового ракурса. <strong>Спасательные жилеты предоставляются.</strong></p>
+              <div class="rental-bottom"><div><strong data-price="rentals.catamaran">…</strong><span>/ час</span></div></div>
+            </div>
+          </article>
+          <article class="rental-card">
+            <div class="rental-picture">
+              <img src="assets/rental-sup-station.webp" alt="Станция проката сап-бордов и спасательные жилеты на берегу Голубого Озера" loading="lazy" />
+              <span class="rental-chip">Для активного отдыха</span>
+            </div>
+            <div class="rental-info">
+              <h3>Сап-борды</h3>
+              <p>Попробуйте прогулку по воде на сап-борде. <strong>Спасательные жилеты предоставляются.</strong></p>
+              <div class="rental-bottom"><div><strong data-price="rentals.sup">…</strong><span>/ час</span></div></div>
+            </div>
+          </article>
+          <article class="rental-card">
+            <div class="rental-picture">
+              <img src="assets/rental-sunbeds.webp" alt="Шезлонги на деревянной площадке у берега Голубого Озера" loading="lazy" />
+              <span class="rental-chip">Спокойный отдых</span>
+            </div>
+            <div class="rental-info">
+              <h3>Шезлонги у берега</h3>
+              <p>Устройтесь поудобнее и наслаждайтесь солнцем и видом на озеро.</p>
+              <div class="rental-bottom"><div><strong data-price="rentals.sunbed">…</strong><span>/ весь день до 22:00</span></div></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Детская площадка: видео посетителей, автоматический повтор без звука, как в первом экране. -->
+    <section class="playground section" id="playground" aria-labelledby="playground-title">
+      <div class="container playground-layout">
+        <div class="playground-copy">
+          <span class="eyebrow">Отдых для всей семьи</span>
+          <h2 id="playground-title">Детская <span class="accent-blue">площадка</span></h2>
+          <p class="playground-lead">Пока взрослые наслаждаются отдыхом на природе, детям есть где поиграть и провести время на свежем воздухе.</p>
+          <p>На площадке есть игровые комплексы с горками, качели и карусель. Посмотрите на неё в нашем коротком видео — это настоящая территория «Голубого Озера».</p>
+          <div class="playground-features" aria-label="Что есть на площадке">
+            <span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Горки</span>
+            <span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Качели</span>
+            <span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Карусель</span>
+            <span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Игры на воздухе</span>
+          </div>
+          <p class="playground-footnote">Для маленьких гостей — место для игр, для всей семьи — ещё больше приятных впечатлений.</p>
+        </div>
+        <div class="playground-video-panel">
+          <div class="playground-video-wrap" aria-hidden="true">
+            <video class="playground-video" autoplay muted loop playsinline preload="metadata" poster="assets/playground-video-poster.webp">
+              <source src="assets/playground-background.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="playground-video-label" aria-hidden="true">
+            <span class="playground-video-dot"></span>
+            <span>Детская площадка · видео с территории</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="amenities section" id="amenities" aria-labelledby="amenities-title">
+      <div class="container amenities-layout">
+        <div class="amenities-copy">
+          <span class="eyebrow">Продумано для отдыха</span>
+          <h2 id="amenities-title">Приезжайте за <span class="accent-blue">хорошим днём.</span></h2>
+          <p>Приезжайте на день в беседку, оставайтесь с ночёвкой в домике или приезжайте с палаткой. У нас есть мангальные зоны, общие кухни и удобства для разных форматов отдыха.</p>
+          <a class="text-link" href="#camping">Посмотреть кемпинг <svg class="icon"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="amenity-grid">
+          <div class="amenity"><span><svg class="icon"><use href="#i-tree"/></svg></span><strong>Беседки и веранды</strong><p>Тёплая, уютная атмосфера</p></div>
+          <div class="amenity"><span><svg class="icon"><use href="#i-flame"/></svg></span><strong>Мангальная зона</strong><p>Место для любимых блюд</p></div>
+          <div class="amenity"><span><svg class="icon"><use href="#i-plug"/></svg></span><strong>Электричество</strong><p>Розетки и свет в большой и средней беседках</p></div>
+          <div class="amenity"><span><svg class="icon"><use href="#i-shower"/></svg></span><strong>Душ для кемпинга</strong><p>Уютный душ, доступный всю ночь гостям кемпинга</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery section" id="gallery" aria-labelledby="gallery-title">
+      <div class="container">
+        <div class="section-heading section-heading--center">
+          <div><span class="eyebrow">Настоящие фотографии</span><h2 id="gallery-title">Галерея <span class="accent-blue">Голубого Озера</span></h2></div>
+          <p>Настоящие фотографии домиков, беседок и веранды. Озеро и природу можно увидеть в разделе выше.</p>
+        </div>
+        <div class="gallery-grid gallery-grid--six">
+          <figure class="gallery-tile"><img src="assets/photo-standard-interior.webp" alt="Интерьер стандартной беседки и вид на озеро" loading="lazy"/><figcaption>Стандарт · внутри</figcaption></figure>
+          <figure class="gallery-tile"><img src="assets/photo-standard-exterior.webp" alt="Стандартные беседки среди деревьев" loading="lazy"/><figcaption>Стандарт · снаружи</figcaption></figure>
+          <figure class="gallery-tile"><img src="assets/photo-medium-plus.webp" alt="Полностью крытая беседка Средняя плюс" loading="lazy"/><figcaption>Средняя плюс</figcaption></figure>
+          <figure class="gallery-tile"><img src="assets/photo-medium-open.webp" alt="Средняя беседка с открытой площадкой" loading="lazy"/><figcaption>Средняя · открытый подиум</figcaption></figure>
+          <figure class="gallery-tile"><img src="assets/photo-large-evening.webp" alt="Большая беседка на закате" loading="lazy"/><figcaption>Большая · на закате</figcaption></figure>
+          <figure class="gallery-tile"><img src="assets/photo-large-new.webp" alt="Просторная большая беседка с мангалом на территории Голубого Озера" loading="lazy"/><figcaption>Большая · просторный зал</figcaption></figure>
+          <figure class="gallery-tile gallery-tile--veranda"><img src="assets/photo-veranda.webp" alt="Крытая мини-веранда и лестница на территории Голубого Озера" loading="lazy"/><figcaption>Уютные крытые веранды</figcaption></figure>
+          <figure class="gallery-tile"><img src="assets/cabin-interior.webp" alt="Уютный интерьер домика с кроватью и диваном" loading="lazy"/><figcaption>Домики · интерьер</figcaption></figure>
+          <figure class="gallery-tile"><img src="assets/cabin-exterior.webp" alt="Деревянный домик снаружи" loading="lazy"/><figcaption>Домики · снаружи</figcaption></figure>
+          <figure class="gallery-tile"><img src="assets/hot-tub.webp" alt="Банный чан с печью на площадке" loading="lazy"/><figcaption>Банный чан</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contacts" aria-labelledby="contacts-title">
+      <div class="container contact-layout">
+        <div>
+          <span class="eyebrow eyebrow--light">До встречи на природе</span>
+          <h2 id="contacts-title">Ваш следующий отличный день начинается здесь.</h2>
+          <p>Выбрали домик, беседку, веранду, место в кемпинге или хотите взять что-то напрокат? Позвоните нам и уточните свободные даты. А по ссылке на карте легко построить маршрут прямо к базе отдыха.</p>
+        </div>
+        <div class="contact-card">
+          <span class="contact-card-title">Контакты</span>
+          <div class="contact-line"><svg class="icon"><use href="#i-pin"/></svg><span>Ростовская область, Азовский район, Самарское сельское поселение</span></div>
+          <div class="contact-line"><svg class="icon"><use href="#i-users"/></svg><a class="contact-phone" href="tel:+79045066480">+7 (904) 506-64-80</a></div>
+          <a class="btn btn--white" href="https://yandex.ru/maps/org/territoriya_otdykha_goluboye_ozero/33760604524/?ll=39.688930%2C46.950033&amp;z=11" target="_blank" rel="noopener noreferrer">Открыть в Яндекс Картах <svg class="icon"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container footer-inner"><div><strong>Территория отдыха «Голубое Озеро»</strong><span>Место для встреч, которые хочется повторить.</span></div><a href="#top" aria-label="Вернуться наверх">Наверх <svg class="icon"><use href="#i-arrow-up"/></svg></a></div></footer>
+</body>
+</html>
