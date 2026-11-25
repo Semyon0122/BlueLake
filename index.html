@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="styles.css" />
   <!-- Все цены берутся из одного файла. defer запускает код после разбора HTML. -->
   <script src="prices.js" defer></script>
+  <script src="photo-viewer.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Перейти к содержанию</a>
@@ -27,6 +28,7 @@
     <symbol id="i-water" viewBox="0 0 24 24"><path d="M2 15c2.2 0 2.2 2 4.4 2s2.2-2 4.4-2 2.2 2 4.4 2 2.2-2 4.4-2 2.2 2 4.4 2M2 9c2.2 0 2.2 2 4.4 2s2.2-2 4.4-2 2.2 2 4.4 2 2.2-2 4.4-2 2.2 2 4.4 2"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24"><path d="m4 12 5 5L20 6"/></symbol>
     <symbol id="i-tree" viewBox="0 0 24 24"><path d="M12 22v-5M4 17l8-13 8 13H4ZM7 12h10"/></symbol>
+    <symbol id="i-gazebo" viewBox="0 0 24 24"><path d="M2 10 12 3l10 7H2Zm3 0v10m14-10v10M3 20h18M5 16h3m8 0h3"/></symbol>
     <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 11 9-8 9 8v9H3v-9Zm5 9v-7h8v7"/></symbol>
     <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 7h4l2-3h4l2 3h4v13H4V7Z"/><circle cx="12" cy="13.5" r="3.5"/></symbol>
     <symbol id="i-utensils" viewBox="0 0 24 24"><path d="M5 2v9m3-9v9m3-9v9M5 7h6m-3 4v11m9-20v20m0-20c-4 3-4 10 0 12"/></symbol>
@@ -39,11 +41,6 @@
 
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="#top" aria-label="Голубое Озеро — на главную">
-        <span class="brand-kicker">Территория отдыха</span>
-        <img src="assets/logo-white.png" alt="Голубое Озеро" width="185" height="54" />
-      </a>
-
       <nav class="desktop-nav" aria-label="Основная навигация">
         <a href="#about">О нас</a>
         <a href="#gazebos">Беседки</a>
@@ -55,8 +52,6 @@
         <a href="#gallery">Галерея</a>
         <a href="#contacts">Контакты</a>
       </nav>
-
-      <a class="btn btn--brown header-cta" href="#gazebos">Выбрать беседку <svg class="icon"><use href="#i-arrow"/></svg></a>
 
       <details class="mobile-nav">
         <summary aria-label="Открыть меню"><span></span><span></span><span></span></summary>
@@ -85,25 +80,36 @@
       </div>
       <div class="hero-glow" aria-hidden="true"></div>
       <div class="container hero-content">
-        <span class="eyebrow eyebrow--light"><span class="eyebrow-dot"></span> Территория отдыха «Голубое Озеро»</span>
-        <h1 id="hero-title">У природы есть<br/><em>особенное место</em><br/>для ваших встреч</h1>
-        <p>Домики у озера, беседки, уютный кемпинг, красивые закаты и отдых с близкими. Здесь хочется собираться снова.</p>
-        <div class="hero-actions">
-          <a class="btn btn--brown btn--large" href="#gazebos">Посмотреть беседки <svg class="icon"><use href="#i-arrow"/></svg></a>
-          <a class="hero-text-link" href="#about">Узнать о базе <span aria-hidden="true">↗</span></a>
+        <div class="hero-copy">
+          <div class="hero-brand">
+            <span>Территория отдыха</span>
+            <img src="assets/logo-white.png" alt="Голубое Озеро" width="830" height="235" />
+          </div>
+          <h1 id="hero-title">У природы есть <em>особенное место</em> для ваших встреч</h1>
+          <p>Уютные беседки, комфортный кемпинг, домики для полного отдыха, красивые закаты и отдых с близкими. Здесь хочется собираться снова.</p>
+          <a class="btn btn--brown hero-location" href="#location"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg> Где мы находимся</a>
         </div>
       </div>
       <div class="hero-corner-label" aria-hidden="true"><svg class="icon"><use href="#i-water"/></svg> Отдых ближе к природе</div>
       <svg class="hero-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true"><path d="M0 53C170 98 296 24 493 44c177 18 252 64 448 30 180-32 325-79 499-23v39H0Z" fill="#fbfaf7"/></svg>
     </section>
 
-    <section class="facts" aria-label="Особенности отдыха">
+    <nav class="facts" aria-label="Варианты отдыха">
       <div class="container facts-grid">
-        <div class="fact"><span class="fact-icon"><svg class="icon"><use href="#i-home"/></svg></span><span><strong>Домики и беседки</strong><small>Выбирайте свой отдых</small></span></div>
-        <div class="fact"><span class="fact-icon"><svg class="icon"><use href="#i-users"/></svg></span><span><strong>Отдых с близкими</strong><small>От семейного дня до праздника</small></span></div>
-        <div class="fact"><span class="fact-icon"><svg class="icon"><use href="#i-tent"/></svg></span><span><strong>Кемпинг у озера</strong><small>Палатки и автодома</small></span></div>
+        <a class="fact" href="#gazebos">
+          <span class="fact-icon"><svg class="icon" aria-hidden="true"><use href="#i-gazebo"/></svg></span>
+          <span><strong>Беседки</strong><small>Для компаний и праздников</small></span>
+        </a>
+        <a class="fact" href="#camping">
+          <span class="fact-icon"><svg class="icon" aria-hidden="true"><use href="#i-tent"/></svg></span>
+          <span><strong>Кемпинг</strong><small>Палатки и автодома</small></span>
+        </a>
+        <a class="fact" href="#cabins">
+          <span class="fact-icon"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg></span>
+          <span><strong>Домики</strong><small>Посуточно</small></span>
+        </a>
       </div>
-    </section>
+    </nav>
 
     <section class="intro section" id="about" aria-labelledby="intro-title">
       <div class="container intro-layout">
@@ -537,7 +543,7 @@
           <h2 id="contacts-title">Ваш следующий отличный день начинается здесь.</h2>
           <p>Выбрали домик, беседку, веранду, место в кемпинге или хотите взять что-то напрокат? Позвоните нам и уточните свободные даты. А по ссылке на карте легко построить маршрут прямо к базе отдыха.</p>
         </div>
-        <div class="contact-card">
+        <div class="contact-card" id="location">
           <span class="contact-card-title">Контакты</span>
           <div class="contact-line"><svg class="icon"><use href="#i-pin"/></svg><span>Ростовская область, Азовский район, Самарское сельское поселение</span></div>
           <div class="contact-line"><svg class="icon"><use href="#i-users"/></svg><a class="contact-phone" href="tel:+79045066480">+7 (904) 506-64-80</a></div>
@@ -548,5 +554,9 @@
   </main>
 
   <footer class="site-footer"><div class="container footer-inner"><div><strong>Территория отдыха «Голубое Озеро»</strong><span>Место для встреч, которые хочется повторить.</span></div><a href="#top" aria-label="Вернуться наверх">Наверх <svg class="icon"><use href="#i-arrow-up"/></svg></a></div></footer>
+
+  <dialog class="photo-viewer" aria-label="Просмотр фотографии">
+    <button class="photo-viewer-close" type="button" aria-label="Закрыть фотографию" autofocus>×</button>
+  </dialog>
 </body>
 </html>
